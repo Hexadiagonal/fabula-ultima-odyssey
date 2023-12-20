@@ -9,8 +9,11 @@ import { SimpleItem } from "./item.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
-import { createWorldbuildingMacro } from "./macro.js";
+import { createfabulaUltimaOdysseyMacro } from "./macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./token.js";
+
+import { FabulaHeroSheet } from "./fabula-hero-sheet.mjs/index.js";
+import { FabulaUltimaActor } from "./fabula-actor.mjs";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -20,7 +23,7 @@ import { SimpleToken, SimpleTokenDocument } from "./token.js";
  * Init hook.
  */
 Hooks.once("init", async function() {
-  console.log(`Initializing Simple Worldbuilding System`);
+  console.log(`Initializing Simple fabulaUltimaOdyssey System`);
 
   /**
    * Set an initiative formula for the system. This will be updated later.
@@ -31,9 +34,9 @@ Hooks.once("init", async function() {
     decimals: 2
   };
 
-  game.worldbuilding = {
+  game.fabulaUltimaOdyssey = {
     SimpleActor,
-    createWorldbuildingMacro
+    createfabulaUltimaOdysseyMacro
   };
 
   // Define custom Document classes
@@ -44,12 +47,14 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("worldbuilding", SimpleActorSheet, { makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("worldbuilding", SimpleItemSheet, { makeDefault: true });
+  Actors.registerSheet("fabulaUltimaOdyssey", FabulaHeroSheet);
+  // Actors.unregisterSheet("core", ActorSheet);
+  // Actors.registerSheet("fabulaUltimaOdyssey", SimpleActorSheet, { makeDefault: true });
+  // Items.unregisterSheet("core", ItemSheet);
+  // Items.registerSheet("fabulaUltimaOdyssey", SimpleItemSheet, { makeDefault: true });
 
   // Register system settings
-  game.settings.register("worldbuilding", "macroShorthand", {
+  game.settings.register("fabulaUltimaOdyssey", "macroShorthand", {
     name: "SETTINGS.SimpleMacroShorthandN",
     hint: "SETTINGS.SimpleMacroShorthandL",
     scope: "world",
@@ -59,7 +64,7 @@ Hooks.once("init", async function() {
   });
 
   // Register initiative setting.
-  game.settings.register("worldbuilding", "initFormula", {
+  game.settings.register("fabulaUltimaOdyssey", "initFormula", {
     name: "SETTINGS.SimpleInitFormulaN",
     hint: "SETTINGS.SimpleInitFormulaL",
     scope: "world",
@@ -70,7 +75,7 @@ Hooks.once("init", async function() {
   });
 
   // Retrieve and assign the initiative formula setting.
-  const initFormula = game.settings.get("worldbuilding", "initFormula");
+  const initFormula = game.settings.get("fabulaUltimaOdyssey", "initFormula");
   _simpleUpdateInit(initFormula);
 
   /**
@@ -101,7 +106,7 @@ Hooks.once("init", async function() {
 /**
  * Macrobar hook.
  */
-Hooks.on("hotbarDrop", (bar, data, slot) => createWorldbuildingMacro(data, slot));
+Hooks.on("hotbarDrop", (bar, data, slot) => createfabulaUltimaOdysseyMacro(data, slot));
 
 /**
  * Adds the actor template context menu.
@@ -118,7 +123,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("worldbuilding", "isTemplate", true);
+      actor.setFlag("fabulaUltimaOdyssey", "isTemplate", true);
     }
   });
 
@@ -132,7 +137,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("worldbuilding", "isTemplate", false);
+      actor.setFlag("fabulaUltimaOdyssey", "isTemplate", false);
     }
   });
 });
@@ -152,7 +157,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const item = game.items.get(li.data("documentId"));
-      item.setFlag("worldbuilding", "isTemplate", true);
+      item.setFlag("fabulaUltimaOdyssey", "isTemplate", true);
     }
   });
 
@@ -166,7 +171,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const item = game.items.get(li.data("documentId"));
-      item.setFlag("worldbuilding", "isTemplate", false);
+      item.setFlag("fabulaUltimaOdyssey", "isTemplate", false);
     }
   });
 });

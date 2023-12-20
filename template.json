@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["hero", "npc", "villain", "item"],
     "htmlFields": ["biography"],
     "character": {
       "biography": "",

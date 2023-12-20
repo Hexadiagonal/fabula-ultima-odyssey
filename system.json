@@ -1,5 +1,5 @@
 {
-    "id": "fabula-ultima-odyssey",
+    "id": "fabulaUltimaOdyssey",
     "title": "Fabula Ultima Odyssey",
     "description": "A Forge-VTT system inspired by classic RPGs and the Fabula Ultima system.",
     "version": "0.0.1",
@@ -14,8 +14,8 @@
         "url": "https://github.com/Hexadiagonal/fabula-ultima-odyssey"
       }
     ],
-    "esmodules": ["module/simple.js"],
-    "styles": ["styles/simple.css"],
+    "esmodules": ["module/core-module.mjs"],
+    "styles": ["styles/simple.css", "styles/odyssey.css"],
     "packs": [],
   "languages": [
       {
