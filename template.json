@@ -1,7 +1,51 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": [
+      "character",
+      "npc",
+      "hero",
+      "bestiary"
+    ],
     "templates": {
+      "combatant": {
+        "hp": {
+          "value": 0,
+          "min": 0,
+          "max":1
+        },
+        "mp": {
+          "value": 0,
+          "min": 0,
+          "max":1
+        },
+        "level": {
+          "value": 5,
+          "min": 5,
+          "max": 50
+        },
+        "attributes": {
+          "dex": {
+            "label": "Dexterity",
+            "value": 0,
+            "min": 0
+          },
+          "ins": {
+            "label": "Intelligence",
+            "value": 0,
+            "min": 0
+          },
+          "mig": {
+            "label": "Might",
+            "value": 0,
+            "min": 0
+          },
+          "wlp": {
+            "label": "Willpower",
+            "value": 0,
+            "min": 0
+          }
+        }
+      },
       "base": {
         "health": {
           "value": 10,
@@ -17,7 +61,9 @@
       }
     },
     "character": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "attributes": {
         "level": {
           "value": 1
@@ -45,28 +91,83 @@
       }
     },
     "npc": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "cr": 0
+    },
+    "hero": {
+      "templates": [
+        "combatant"
+      ],
+      "ip": {
+        "value":0,
+        "min":0,
+        "max":0
+      },
+      "fabula": {
+        "value": 0,
+        "min": 0,
+        "max": 0
+      },
+      "exp": {
+        "value": 0,
+        "min": 0,
+        "max": 0
+      },
+      "traits": {
+        "identity": "",
+        "theme": "",
+        "origin": ""
+      },
+      "bonds": {
+        "admiration": {
+          "target": "",
+          "types":[
+            {
+              "l1": "Admiration",
+              "l2": "Inferiority",
+              "v1": false,
+              "v2": false
+            }
+          ]
+        }
+      }
+    },
+    "bestiary": {
+      "templates": [
+        "combatant"
+      ]
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": [
+      "item",
+      "feature",
+      "spell"
+    ],
     "templates": {
       "base": {
         "description": ""
       }
     },
     "item": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "quantity": 1,
       "weight": 0,
       "formula": "d20 + @str.mod + ceil(@lvl / 2)"
     },
     "feature": {
-      "templates": ["base"]
+      "templates": [
+        "base"
+      ]
     },
     "spell": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "spellLevel": 1
     }
   }

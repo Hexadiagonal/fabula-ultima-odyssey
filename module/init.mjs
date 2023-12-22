@@ -1,8 +1,10 @@
 // Import document classes.
 import { fabulaUltimaOdysseyActor } from "./documents/actor.mjs";
 import { fabulaUltimaOdysseyItem } from "./documents/item.mjs";
+
 // Import sheet classes.
 import { fabulaUltimaOdysseyActorSheet } from "./sheets/actor-sheet.mjs";
+import { fabulaUltimaOdysseyHeroSheet } from "./sheets/actor-hero-sheet.mjs"
 import { fabulaUltimaOdysseyItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
@@ -13,6 +15,8 @@ import { fabulaUltimaOdyssey } from "./helpers/config.mjs";
 /* -------------------------------------------- */
 
 Hooks.once('init', async function() {
+  
+  console.warn("Initializing Fabula Ultima Odyssey module.");
 
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
@@ -40,9 +44,14 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyActorSheet, { makeDefault: true });
+  Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyActorSheet, { types:["character"], makeDefault: true });
+
+  Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyHeroSheet, { types:["hero"], makeDefault: true });
+
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyItemSheet, { makeDefault: true });
+
+  //Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyHeroSheet, { makeDefault: false });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
