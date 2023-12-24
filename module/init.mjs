@@ -15,7 +15,7 @@ import { fabulaUltimaOdyssey } from "./helpers/config.mjs";
 /* -------------------------------------------- */
 
 Hooks.once('init', async function() {
-  
+  CONFIG.debug.hooks = true;
   console.warn("Initializing Fabula Ultima Odyssey module.");
 
   // Add utility classes to the global game object so that they're more easily
@@ -55,6 +55,17 @@ Hooks.once('init', async function() {
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
+});
+
+Hooks.once("updateActor", async function(d, c, o, u) {
+  console.log("doc", d);
+  console.log("change", c);
+
+});
+
+Hooks.once("preUpdateActor", async function(document, changes, options, userId){
+  console.log("Pre upload doc", document);
+  console.log("Pre upload changes", changes)
 });
 
 /* -------------------------------------------- */

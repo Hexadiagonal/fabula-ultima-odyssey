@@ -121,18 +121,145 @@
         "origin": ""
       },
       "bonds": {
-        "admiration": {
+        "1": {
           "target": "",
-          "types":[
-            {
-              "l1": "Admiration",
-              "l2": "Inferiority",
-              "v1": false,
-              "v2": false
+          "qualities": {
+            "1": {
+              "pos": "Admiration",
+              "neg": "Inferiority",
+              "posVal": false,
+              "negVal": false
+            },
+            "2": {
+              "pos": "Loyalty",
+              "neg": "Mistrust",
+              "posVal": false,
+              "negVal": false
+            },
+            "3": {
+              "pos": "Affection",
+              "neg": "Hatred",
+              "posVal": false,
+              "negVal": false
             }
-          ]
+          }
+        },
+        "2": {
+          "target": "",
+          "qualities": {
+            "1": {
+              "pos": "Admiration",
+              "neg": "Inferiority",
+              "posVal": false,
+              "negVal": false
+            },
+            "2": {
+              "pos": "Loyalty",
+              "neg": "Mistrust",
+              "posVal": false,
+              "negVal": false
+            },
+            "3": {
+              "pos": "Affection",
+              "neg": "Hatred",
+              "posVal": false,
+              "negVal": false
+            }
+          }
+        },
+        "3": {
+          "target": "",
+          "qualities": {
+            "1": {
+              "pos": "Admiration",
+              "neg": "Inferiority",
+              "posVal": false,
+              "negVal": false
+            },
+            "2": {
+              "pos": "Loyalty",
+              "neg": "Mistrust",
+              "posVal": false,
+              "negVal": false
+            },
+            "3": {
+              "pos": "Affection",
+              "neg": "Hatred",
+              "posVal": false,
+              "negVal": false
+            }
+          }
+        },
+        "4": {
+          "target": "",
+          "qualities": {
+            "1": {
+              "pos": "Admiration",
+              "neg": "Inferiority",
+              "posVal": false,
+              "negVal": false
+            },
+            "2": {
+              "pos": "Loyalty",
+              "neg": "Mistrust",
+              "posVal": false,
+              "negVal": false
+            },
+            "3": {
+              "pos": "Affection",
+              "neg": "Hatred",
+              "posVal": false,
+              "negVal": false
+            }
+          }
+        },
+        "5": {
+          "target": "",
+          "qualities": {
+            "1": {
+              "pos": "Admiration",
+              "neg": "Inferiority",
+              "posVal": false,
+              "negVal": false
+            },
+            "2": {
+              "pos": "Loyalty",
+              "neg": "Mistrust",
+              "posVal": false,
+              "negVal": false
+            },
+            "3": {
+              "pos": "Affection",
+              "neg": "Hatred",
+              "posVal": false,
+              "negVal": false
+            }
+          }
+        },
+        "6": {
+          "target": "",
+          "qualities": {
+            "1": {
+              "pos": "Admiration",
+              "neg": "Inferiority",
+              "posVal": false,
+              "negVal": false
+            },
+            "2": {
+              "pos": "Loyalty",
+              "neg": "Mistrust",
+              "posVal": false,
+              "negVal": false
+            },
+            "3": {
+              "pos": "Affection",
+              "neg": "Hatred",
+              "posVal": false,
+              "negVal": false
+            }
+          }
         }
-      }
+    }
     },
     "bestiary": {
       "templates": [

@@ -35,7 +35,7 @@
           <label for="system.hp.value" class="resource-label">HP</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" />
-            <span> / </span>origin
+            <span> / </span>
             <input type="text" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" />
           </div>
         </div>
@@ -50,111 +50,63 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.attributes.level.value" class="resource-label">Level</label>
+          <label for="system.level.value" class="resource-label">Level</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.attributes.level.value" value="{{system.level.value}}" data-dtype="Number"/>
+          <input type="text" name="system.level.value" value="{{system.level.value}}" data-dtype="Number"/>
           </div>
         </div>
 
-        {{#each system.attributes as | attribute key|}}
-        <div class="resource flex-group-center">
-          <label for="system.attributes.{{key}}" class="resource-label">{{attribute.label}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.attributes.{{key}}" value="{{ability.value}}" data-dtype="Number"/>
+        {{#each system.attributes as | attribute key | }}
+          {{!-- {{log key "|" attribute.value ":" attribute}} --}}
+          <div class="resource flex-group-center">
+            <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label>
+            <div class="resource-content flexrow flex-center flex-between">
+              <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number" />
+            </div>
           </div>
-        </div>
         {{/each}}
-
-        {{#each system.bonds as | bond key|}}
-        <div class="resource flex-group-center">
-          <label for="system.bonds.{{key}}.target" class="resource-label">{{key}}</label>
-          <input type="text" name="system.bonds.{{key}}.target" value="{{bond.target}}" />
-
-          {{#each bond.types as | type typeKey|}}
-          <label for="system.bonds.{{key}}.target">1</label>
-          <input name="system.bonds.{{key}}.target" value="{{type.target}}"
-            {{!-- <input type="checkbox" {{bindAttr checked="isChecked"}}> --}}
-            {{!-- <input name="system.resources.{{res.name}}.lr" type="checkbox" {{checked res.lr}} --}}
-            {{!-- <label for="{{type.group}}" class="resource-label" >{{type.l1}}</label>
-            <input type="checkbox" name="{{type.group}}" value="{{type.value}}" data-dtype="Boolean" />
-            <label for="{{type.group}}" class="resource-label" >{{type.l2}}</label>
-            <input type="checkbox" name="{{type.group}}" value="{{type.value}}" data-dtype="Boolean"/> --}}
-            {{!-- {{type.group}}
-            {{type.l1}}: {{type.v1}}
-            {{type.l2}}: {{type.v2}} --}}
-            {{!-- <label for="system.bonds.{{key}}.types[{{typeKey}}]" class="resource-label" >{{type.label}}</label>
-            <input type="checkbox" name="system.bonds.{{key}}.types[{{typeKey}}]" value="{{type.value}}" /> --}}
-          {{/each}}
+        
         </div>
-        {{!-- <div>{{key}}</div>
-        <div>{{ability.value}}</div> --}}
-        {{/each}}
-      </div>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="features">Hero</a>
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="spells">Spells</a>
-    <a class="item" data-tab="effects">Effects</a>
+    <a class="item" data-tab="bonds">Bonds</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-
-    {{!-- Owned Features Tab --}}
-    <div class="tab features" data-group="primary" data-tab="features">
-      <section class="grid grid-3col">
-        <aside class="sidebar">
-
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-          <div class="abilities flexcol">
-            {{#each system.abilities as |ability key|}}
-            <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{ability.label}}</label>
-              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+    {{!-- Bonds Tab block --}}
+    <div class="tab bonds" data-group="primary" data-tab="bonds">
+      {{!-- Bonds container --}}
+      <div>
+          <div class="group-border">
+            <span class="text-vertical-pill">Bonds</span>
+            {{#each system.bonds as | bond bondKey | }}
+            {{!-- {{log "bond #" bondKey bond}} --}}
+            <div class="resource flex-group-center">
+              {{!-- The bond recipient / target --}}
+              <label for="system.bonds.{{bondKey}}.target">{{bond.target}}</label>
+              <input type="text" name="system.bonds.{{bondKey}}.target" value="{{bond.target}}" />
+  
+              {{!-- Bond qualities --}}
+              {{#each bond.qualities as | quality qualityKey | }}
+              {{!-- {{log "quality #" qualityKey quality}} --}}
+              <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal">{{quality.pos}}</label>
+              <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal"
+                value="{{quality.posVal}}" {{checked quality.posVal}} data-dtype="Boolean" />
+  
+              <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal">{{quality.neg}}</label>
+              <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal"
+                value="{{quality.negVal}}" {{checked quality.negVal}} data-dtype="Boolean" />
+              {{/each}}
             </div>
             {{/each}}
           </div>
-        </aside>
-
-        {{!-- For the main features list, span the right two columns --}}
-        <section class="main grid-span-2">
-          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-          {{> "systems/fabulaUltimaOdyssey/templates/actor/parts/actor-features.html"}}
-        </section>
-
-      </section>
+      </div>
     </div>
-
-    {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
-    </div>
-
-    {{!-- Owned Items Tab --}}
-    <div class="tab items" data-group="primary" data-tab="items">
-       {{> "systems/fabulaUltimaOdyssey/templates/actor/parts/actor-items.html"}}
-    </div>
-
-    {{!-- Owned Spells Tab --}}
-    <div class="tab spells" data-group="primary" data-tab="spells">
-      {{> "systems/fabulaUltimaOdyssey/templates/actor/parts/actor-spells.html"}}
-    </div>
-
-    {{!-- Active Effects Tab --}}
-    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
-      {{> "systems/fabulaUltimaOdyssey/templates/actor/parts/actor-effects.html"}}
-    </div>
-
   </section>
 </form>
 

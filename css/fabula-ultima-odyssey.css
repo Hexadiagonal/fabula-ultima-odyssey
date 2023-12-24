@@ -1,0 +1,21 @@
+.text-vertical {
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+}
+
+.text-vertical-pill {
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    background-color: darkolivegreen;
+    color:white;
+    width:1em;
+    height:70%;
+    border: 1px darkolivegreen;
+    border-radius: 3px;
+}
+
+.group-border {
+    border-radius: 3px;
+    border: 1px solid black;
+    padding:1em;
+}

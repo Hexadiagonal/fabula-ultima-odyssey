@@ -26,7 +26,7 @@
     "verified": "11.315"
   },
   "esmodules": ["module/init.mjs"],
-  "styles": ["css/boilerplate.css"],
+  "styles": ["css/boilerplate.css", "css/fabula-ultima-odyssey.css"],
   "languages": [
     {
       "lang": "en",
