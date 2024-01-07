@@ -24,6 +24,10 @@ export class fabulaUltimaOdysseyHeroSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
+  _rollListener(event){
+    
+  }
+
   /** @override */
   getData() {
     // Retrieve the data structure from the base sheet. You can inspect or log
@@ -199,10 +203,36 @@ export class fabulaUltimaOdysseyHeroSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+
+    if(dataset.rolltype == "attribute"){
+
+      const attrRollContent = await renderTemplate("systems/fabulaUltimaOdyssey/module/sheets/sheet-partials/attribute-roll-modal.hbs", this);
+
+      let d = new Dialog({
+        title: "Attribute Roll",
+        content: attrRollContent,
+        buttons: {
+         one: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "Option One",
+          callback: () => console.log("Chose One")
+         },
+         two: {
+          icon: '<i class="fas fa-times"></i>',
+          label: "Option Two",
+          callback: () => console.log("Chose Two")
+         }
+        },
+        default: "two",
+        render: html => console.log("Register interactivity in the rendered dialog"),
+        close: html => console.log("This always is logged no matter which option is chosen")
+       });
+       d.render(true);
+    }
 
     // Handle item rolls.
     if (dataset.rollType) {

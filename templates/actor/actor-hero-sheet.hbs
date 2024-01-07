@@ -1,9 +1,13 @@
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <img class="char-image-long" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    {{!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> --}}
     <div class="header-fields">
+      {{!-- <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1> --}}
+      <div class="grid"></div>
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns.  --}}
@@ -26,6 +30,12 @@
             Theme
           </label>
           <input type="text" name="system.traits.theme" value="{{system.traits.theme}}" />
+        </div>
+        <div>
+          <span>Roll Test</span>
+          <div>
+            {{!-- <span class="ability-mod rollable" data-roll="d6+d6" data-label="Banana">{{numberFormat decimals=0 sign=true}}</span> --}}
+          </div>
         </div>
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
@@ -57,15 +67,20 @@
         </div>
 
         {{#each system.attributes as | attribute key | }}
-          {{!-- {{log key "|" attribute.value ":" attribute}} --}}
           <div class="resource flex-group-center">
-            <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label>
+            {{!-- <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label> --}}
+            <h4 class="rollable box-title" data-rolltype="attribute" data-selected-attribute="{{key}}" data-selected-attribute-size="{{attribute.value}}">{{key}}</h4>
             <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number" />
+              <select name="system.attributes.{{key}}.value" selected="{{attribute.value}}">
+                <option selected="selected" value="d6">d6</option>
+                <option value="d8">d8</option>
+                <option value="d10">d10</option>
+                <option value="d12">d12</option>
+              </select>
             </div>
           </div>
         {{/each}}
-        
+        {{!-- <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number" /> --}}
         </div>
     </div>
   </header>
