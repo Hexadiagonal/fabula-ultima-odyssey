@@ -4,7 +4,8 @@ import { fabulaUltimaOdysseyItem } from "./documents/item.mjs";
 
 // Import sheet classes.
 import { fabulaUltimaOdysseyActorSheet } from "./sheets/actor-sheet.mjs";
-import { fabulaUltimaOdysseyHeroSheet } from "./sheets/actor-hero-sheet.mjs"
+//import { fabulaUltimaOdysseyHeroSheet } from "./sheets/actor-hero-sheet.mjs";
+import { fabulaUltimaOdysseyHeroSheet } from "../tsproject/fabulaUltimaOdyssey/actor-hero-sheet.mjs";
 import { fabulaUltimaOdysseyItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
