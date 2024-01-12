@@ -1,5 +1,5 @@
 {
-  "name": "fabulaUltimaOdyssey",
+  "name": "fabula-ultima-odyssey",
   "version": "1.0.0",
   "description": "CSS compiler for the fabulaUltimaOdyssey system",
   "scripts": {
@@ -15,6 +15,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@types/handlebars-helpers": "^0.5.6",
     "@types/jquery": "^3.5.29",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",

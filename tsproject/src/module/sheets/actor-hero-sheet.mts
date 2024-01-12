@@ -1,47 +1,8 @@
-import {onManageActiveEffect, prepareActiveEffectCategories} from "./helpers/effects.mjs"; //"../helpers/effects.mjs";
+import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs"; //"../helpers/effects.mjs";
 //import {CONST, utils} from "./ref/commons.js";
 //import {ActorSheet} from "./ref/foundry.js";
 
-declare class ActorSheet {
-  static defaultOptions: any;
-  actor: any;
-  isEditable:boolean;
-  getData():any;
-  render():any;
-  render(p:boolean):any;
-  _onDragStart(p:any):any;
-  activateListeners(html:any):any;
-}
 
-declare class DEFAULT_TOKEN{}
-declare class Event{}
-declare class Item {
-  static create(itemData:any, p:any);
-}
-declare class CONFIG{
-  static fabulaUltimaOdyssey:any;
-}
-declare class game{
-  static i18n:any;
-}
-declare class Dialog {
-  constructor(p);
-  render(b:boolean);
-}
-declare function renderTemplate(tmpStr:string, ctx:any):any;
-declare function duplicate(p:any):any;
-declare function mergeObject(a:any, b:any):any;
-declare function mergeObject(a:any, b:any, c:_mergeObjectConfig ):any;
-
-class _mergeObjectConfig{
-  insertKeys = true;
-  insertValues = true;
-  overwrite = true;
-  recurse = true;
-  inplace = true;
-  enforceTypes = false;
-  performDeletions = false;
-}
 
 /**
  * Extend the basic ActorSheet with some very simple modifications

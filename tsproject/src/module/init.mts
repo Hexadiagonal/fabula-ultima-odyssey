@@ -4,8 +4,9 @@ import { fabulaUltimaOdysseyItem } from "./documents/item.mjs";
 
 // Import sheet classes.
 import { fabulaUltimaOdysseyActorSheet } from "./sheets/actor-sheet.mjs";
-//import { fabulaUltimaOdysseyHeroSheet } from "./sheets/actor-hero-sheet.mjs";
-import { fabulaUltimaOdysseyHeroSheet } from "../tsproject/fabulaUltimaOdyssey/actor-hero-sheet.mjs";
+
+import { fabulaUltimaOdysseyHeroSheet } from "./sheets/actor-hero-sheet.mjs";
+
 import { fabulaUltimaOdysseyItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
@@ -49,8 +50,8 @@ Hooks.once('init', async function() {
 
   Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyHeroSheet, { types:["hero"], makeDefault: true });
 
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyItemSheet, { makeDefault: true });
+  // Items.unregisterSheet("core", ItemSheet);
+  // Items.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyItemSheet, { makeDefault: true });
 
   //Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyHeroSheet, { makeDefault: false });
 
