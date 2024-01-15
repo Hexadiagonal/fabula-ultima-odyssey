@@ -1,10 +1,7 @@
 {
   "Actor": {
     "types": [
-      "character",
-      "npc",
-      "hero",
-      "bestiary"
+      "hero"
     ],
     "templates": {
       "combatant": {

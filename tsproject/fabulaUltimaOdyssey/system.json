@@ -1,7 +1,7 @@
 {
   "id": "fabulaUltimaOdyssey",
   "title": "Fabula Ultima Odyssey",
-  "description": "Fabula Ultima: Odyssey FoundryVTT.",
+  "description": "Fabula Ultima: Odyssey for FoundryVTT.",
   "authors": [
     {
       "name": "Hexadiagonal",
@@ -20,7 +20,7 @@
       "thumbnail": "systems/fabulaUltimaOdyssey/assets/anvil-impact.png"
     }
   ],
-  "version": "1.3.0",
+  "version": "0.1.0",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"

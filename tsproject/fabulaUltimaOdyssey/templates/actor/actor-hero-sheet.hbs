@@ -5,8 +5,20 @@
     {{!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> --}}
     <div class="header-fields">
       {{!-- <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1> --}}
-      <div class="grid"></div>
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+      <div class="grid grid-12col name-pronoun-container">
+        <span class="label-input">
+          <label>Name</label>
+          <input class="name-input" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+        </span>
+        <span class="label-input">
+          <label>Pronouns</label>
+          <input class="pronoun-input" name="system.pronouns" type="text" value="{{system.pronouns}}"
+            placeholder="Pronouns" />
+        </span>
+      </div>
+      {{!-- <h1 class="charname">
+        
+      </h1> --}}
 
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
