@@ -1,12 +1,11 @@
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
   {{!-- Sheet Header --}}
-  {{!-- <header class="sheet-header"> --}}
-  <header>
-    <div class="header-grid debug">
-      <div class="grid-sheet-image-container debug">
-        <img class="char-image-long" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-      </div>
-      <div class="name-container debug">
+  <header class="sheet-header">
+    <img class="char-image-long" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    {{!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> --}}
+    <div class="header-fields">
+      {{!-- <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1> --}}
+      <div class="grid grid-12col name-pronoun-container">
         <span class="label-input">
           <label>Name</label>
           <input class="name-input" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
@@ -16,19 +15,6 @@
           <input class="pronoun-input" name="system.pronouns" type="text" value="{{system.pronouns}}"
             placeholder="Pronouns" />
         </span>
-      </div>
-      <div class="traits-container debug">
-
-      </div>
-    </div>
-
-
-    
-    {{!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> --}}
-    <div class="header-fields">
-      {{!-- <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1> --}}
-      <div class="grid grid-12col name-pronoun-container">
-        
       </div>
       {{!-- <h1 class="charname">
         

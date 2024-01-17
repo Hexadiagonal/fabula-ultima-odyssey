@@ -1,6 +1,6 @@
 .char-image-long {
-    height: 150px;
-    width:100px;
+    height:250px;
+    width:150px;
 }
 
 .text-vertical {
@@ -25,26 +25,6 @@
     padding:1em;
 }
 
-.name-pronoun-container {
-    display:grid;
-    grid-column: 1 / span 12;    
-}
-.name-pronoun-container:first-child{
-    grid-column:1 / span 10;
-}
-
-.name-pronoun-container:last-child {
-    grid-column:11 / span 1;
-}
-
-.name-input {
-    grid-column:1 / span 8;
-}
-
-.pronoun-input {
-    grid-column:9 / span 3;
-}
-
 .label-input {
     display:flex;
     flex-direction: row;
@@ -59,4 +39,32 @@
     input {
         flex-basis:max-content;
     }
+}
+
+.header-grid {
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 250px;
+    // grid-column: span 12 / span 12;
+    // grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-sheet-image-container {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 7;
+
+}
+
+.name-container {
+    grid-column-start:2;
+    grid-column-end:2;
+    grid-row-start:1;
+    grid-row-end:2;
+}
+
+.debug {
+    border:1px dotted red;
+    padding:1px;
 }
