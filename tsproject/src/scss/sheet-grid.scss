@@ -1,19 +1,109 @@
-.name-pronoun-container {
+
+
+// .name-pronoun-container {
+//     display:grid;
+//     grid-column: 1 / span 12;    
+// }
+// .name-pronoun-container:first-child{
+//     grid-column:1 / span 10;
+// }
+
+// .name-pronoun-container:last-child {
+//     grid-column:11 / span 1;
+// }
+
+// .name-input {
+//     grid-column:1 / span 8;
+// }
+
+// .pronoun-input {
+//     grid-column:9 / span 3;
+// }
+
+// .header-grid {
+//     display:grid;
+//     grid-template-columns: 150px 1fr;
+//     grid-template-rows: 250px;
+//     // grid-column: span 12 / span 12;
+//     // grid-template-columns: repeat(12, minmax(0, 1fr));
+// }
+
+// .grid-sheet-image-container {
+//     grid-column-start: 1;
+//     grid-column-end: 1;
+//     grid-row-start: 1;
+//     grid-row-end: 7;
+
+// }
+
+// .name-container {
+//     grid-column-start:2;
+//     grid-column-end:2;
+//     grid-row-start:1;
+//     grid-row-end:2;
+// }
+
+.page-container {
+    max-width:700px;
+    min-width:500px;
+}
+
+.header-grid {
     display:grid;
-    grid-column: 1 / span 12;    
-}
-.name-pronoun-container:first-child{
-    grid-column:1 / span 10;
-}
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 250px;
 
-.name-pronoun-container:last-child {
-    grid-column:11 / span 1;
-}
+    .header-data-grid {
+        display:grid;
+        grid-template-columns: repeat(10, .1fr [col-start]) ;
+        grid-template-rows: repeat(4, max-content);
+        column-gap: 5px;
+        row-gap: .5em;
+        padding:5px;
 
-.name-input {
-    grid-column:1 / span 8;
-}
+        // Row 1
+        .name-gridspan {
+            grid-column: auto / span 8; 
+            grid-row: auto / span 1;
+        }
 
-.pronoun-input {
-    grid-column:9 / span 3;
+        .pronouns-gridspan {
+            grid-column: auto / span 2; 
+            grid-row: auto / span 1;
+        }
+
+        // Row 2
+        .identity-gridspan {
+            grid-column: auto / span 10; 
+            grid-row: auto / span 1;
+        }
+
+        // Row 3
+        .theme-gridspan {
+            grid-column: auto / span 5; 
+            grid-row: auto / span 1;
+        }
+
+        .origin-gridspan {
+            grid-column: auto / span 5; 
+            grid-row: auto / span 1;
+        }
+
+        // Row 4
+
+        .fabula-gridspan {
+            grid-column: auto / span 3;
+            grid-row: auto / span 1;
+        }
+
+        .exp-gridspan {
+            grid-column: auto / span 3;
+            grid-row: auto / span 1;
+        }
+
+        .level-gridspan {
+            grid-column: auto / span 3;
+            grid-row: auto / span 1;
+        }
+    }
 }
