@@ -214,7 +214,7 @@ export class fabulaUltimaOdysseyHeroSheet extends ActorSheet {
 
     if(dataset.rolltype == "attribute"){
 
-      const attrRollContent = await renderTemplate("systems/fabulaUltimaOdyssey/module/sheets/sheet-partials/attribute-roll-modal.hbs", this);
+      const attrRollContent = await renderTemplate("systems/fabulaUltimaOdyssey/templates/partials/attribute-roll-modal.hbs", this);
 
       let d = new Dialog({
         title: "Attribute Roll",
