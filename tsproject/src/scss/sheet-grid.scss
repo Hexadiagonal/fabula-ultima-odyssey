@@ -43,9 +43,19 @@
 //     grid-row-end:2;
 // }
 
+.window-app .window-content {
+    background:rgb(245,245,245, .90);
+    // backdrop-filter: blur(50px);
+}
+
 .page-container {
     max-width:700px;
     min-width:500px;
+}
+
+.numeric-input[type="number"] {
+    text-align: center;
+    width:50px;
 }
 
 .header-grid {
@@ -56,7 +66,7 @@
     .header-data-grid {
         display:grid;
         grid-template-columns: repeat(10, .1fr [col-start]) ;
-        grid-template-rows: repeat(4, max-content);
+        grid-template-rows: repeat(5, max-content);
         column-gap: 5px;
         row-gap: .5em;
         padding:5px;
@@ -92,18 +102,41 @@
         // Row 4
 
         .fabula-gridspan {
-            grid-column: auto / span 3;
+            grid-column: auto / span 10;
             grid-row: auto / span 1;
+
+            display:flex;
+            justify-content: space-around;
+
+            .flex-grid-content {
+                margin-left:10px;
+                margin-right:10px;
+            }
         }
 
-        .exp-gridspan {
-            grid-column: auto / span 3;
-            grid-row: auto / span 1;
-        }
+        // .exp-gridspan {
+        //     grid-column: auto / span 3;
+        //     grid-row: auto / span 1;
+        // }
 
-        .level-gridspan {
-            grid-column: auto / span 3;
+        // .level-gridspan {
+        //     grid-column: auto / span 3;
+        //     grid-row: auto / span 1;
+        // }
+
+        // Row 5, flex content
+
+        .health-gridspan {
+            grid-column: auto / span 10;
             grid-row: auto / span 1;
+
+            display:flex;
+            justify-content: space-around;
+
+            .flex-grid-content {
+                margin-left:10px;
+                margin-right:10px;
+            }
         }
     }
 }
