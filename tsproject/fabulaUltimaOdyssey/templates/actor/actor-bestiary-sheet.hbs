@@ -93,25 +93,20 @@
           center all of its child elements content and text. --}}
           
           {{#each system.attributes as | attribute key | }}
-            <div class="resource flex-group-center">
-              {{!-- <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label> --}}
-              <h4 class="rollable box-title" data-rolltype="attribute" data-selected-attribute="{{key}}"
-                data-selected-attribute-size="{{attribute.value}}">{{attribute.label}}</h4>
-              <div class="resource-content flexrow flex-center flex-between">
-                <select name="system.attributes.{{key}}.value" selected="{{attribute.value}}">
-                  {{#each attribute.range as | range index | }}
-                    {{!-- <option {{#if range.value == attribute.value}} selected="selected" {{/if}}value="{{range.value}}">{{range.label}}</option> --}}
-                  {{/each}}
-                  {{!-- <option selected="selected" value="d6">d6</option>
-                  <option value="d8">d8</option>
-                  <option value="d10">d10</option>
-                  <option value="d12">d12</option> --}}
-                </select>
-              </div>
+          <div class="resource flex-group-center">
+            {{!-- <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label> --}}
+            <h4 class="rollable box-title" data-rolltype="attribute" data-selected-attribute="{{key}}"
+              data-selected-attribute-size="{{attribute.value}}">{{attribute.label}}</h4>
+            <div class="resource-content flexrow flex-center flex-between">
+              <select name="system.attributes.{{key}}.value" selected="{{attribute.value}}">
+                <option selected="selected" value="d6">d6</option>
+                <option value="d8">d8</option>
+                <option value="d10">d10</option>
+                <option value="d12">d12</option>
+              </select>
             </div>
+          </div>
           {{/each}}
-          
-          
           {{!-- <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}"
             data-dtype="Number" /> --}}
         </div>

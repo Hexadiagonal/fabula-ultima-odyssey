@@ -33,12 +33,8 @@
           
           <span class="fabula-gridspan resource-content">
             <span class="flex-grid-content">
-              <label class="resource-label" for="system.fabula">Fabula</label>
-              <input class="numeric-input" type="number" name="system.fabula" value="{{system.mp.value}}" data-dtype="Number" />
-            </span>
-            <span class="flex-grid-content">
-              <label class="resource-label" for="system.exp">Exp</label>
-              <input class="numeric-input" type="number" name="system.exp" value="{{system.mp.value}}" data-dtype="Number" />
+              <label class="resource-label" for="system.ultima">Ultima</label>
+              <input class="numeric-input" type="number" name="system.ultima" value="{{system.mp.value}}" data-dtype="Number" />
             </span>
             <span class="flex-grid-content">
               <label class="resource-label" for="system.level">Level</label>
@@ -93,25 +89,20 @@
           center all of its child elements content and text. --}}
           
           {{#each system.attributes as | attribute key | }}
-            <div class="resource flex-group-center">
-              {{!-- <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label> --}}
-              <h4 class="rollable box-title" data-rolltype="attribute" data-selected-attribute="{{key}}"
-                data-selected-attribute-size="{{attribute.value}}">{{attribute.label}}</h4>
-              <div class="resource-content flexrow flex-center flex-between">
-                <select name="system.attributes.{{key}}.value" selected="{{attribute.value}}">
-                  {{#each attribute.range as | range index | }}
-                    {{!-- <option {{#if range.value == attribute.value}} selected="selected" {{/if}}value="{{range.value}}">{{range.label}}</option> --}}
-                  {{/each}}
-                  {{!-- <option selected="selected" value="d6">d6</option>
-                  <option value="d8">d8</option>
-                  <option value="d10">d10</option>
-                  <option value="d12">d12</option> --}}
-                </select>
-              </div>
+          <div class="resource flex-group-center">
+            {{!-- <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label> --}}
+            <h4 class="rollable box-title" data-rolltype="attribute" data-selected-attribute="{{key}}"
+              data-selected-attribute-size="{{attribute.value}}">{{attribute.label}}</h4>
+            <div class="resource-content flexrow flex-center flex-between">
+              <select name="system.attributes.{{key}}.value" selected="{{attribute.value}}">
+                <option selected="selected" value="d6">d6</option>
+                <option value="d8">d8</option>
+                <option value="d10">d10</option>
+                <option value="d12">d12</option>
+              </select>
             </div>
+          </div>
           {{/each}}
-          
-          
           {{!-- <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}"
             data-dtype="Number" /> --}}
         </div>
