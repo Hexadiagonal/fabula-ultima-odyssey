@@ -33,28 +33,28 @@
 
             <span class="fabula-gridspan resource-content">
               <span class="flex-grid-content">
-                <label class="resource-label" for="system.mdefense">MDef</label>
+                <label class="resource-label" for="system.mdefense.value">MDef</label>
                 <input class="numeric-input" type="number" name="system.mdefense.value"
                   value="{{system.mdefense.value}}" data-dtype="Number" />
               </span>
               <span class="flex-grid-content">
-                <label class="resource-label" for="system.mdefense">Def</label>
-                <input class="numeric-input" type="number" name="system.defense" value="{{system.mdefense.value}}"
+                <label class="resource-label" for="system.mdefense.value">Def</label>
+                <input class="numeric-input" type="number" name="system.defense.value" value="{{system.mdefense.value}}"
                   data-dtype="Number" />
               </span>
               <span class="flex-grid-content">
-                <label class="resource-label" for="system.fabula">Fabula</label>
-                <input class="numeric-input" type="number" name="system.fabula" value="{{system.mp.value}}"
+                <label class="resource-label" for="system.fabula.value">Fabula</label>
+                <input class="numeric-input" type="number" name="system.fabula.value" value="{{system.mp.value}}"
                   data-dtype="Number" />
               </span>
               <span class="flex-grid-content">
-                <label class="resource-label" for="system.exp">Exp</label>
-                <input class="numeric-input" type="number" name="system.exp" value="{{system.mp.value}}"
+                <label class="resource-label" for="system.exp.value">Exp</label>
+                <input class="numeric-input" type="number" name="system.exp.value" value="{{system.mp.value}}"
                   data-dtype="Number" />
               </span>
               <span class="flex-grid-content">
-                <label class="resource-label" for="system.level">Level</label>
-                <input class="numeric-input" type="number" name="system.level" value="{{system.mp.value}}"
+                <label class="resource-label" for="system.level.value">Level</label>
+                <input class="numeric-input" type="number" name="system.level.value" value="{{system.mp.value}}"
                   data-dtype="Number" />
               </span>
             </span>
@@ -123,6 +123,7 @@
       <nav class="sheet-tabs tabs" data-group="primary">
         {{!-- Default tab is specified in actor-sheet.mjs --}}
         <a class="item" data-tab="bonds">Bonds</a>
+        <a class="item" data-tab="bio">Biography</a>
       </nav>
 
       {{!-- Sheet Body --}}
@@ -130,29 +131,55 @@
         {{!-- Bonds Tab block --}}
         <div class="tab bonds" data-group="primary" data-tab="bonds">
           {{!-- Bonds container --}}
-          <div>
             <div class="group-border">
-              <span class="text-vertical-pill">Bonds</span>
-              {{#each system.bonds as | bond bondKey | }}
-              <div class="resource flex-group-center">
-                {{!-- The bond recipient / target --}}
-                <label for="system.bonds.{{bondKey}}.target">{{bond.target}}</label>
-                <input type="text" name="system.bonds.{{bondKey}}.target" value="{{bond.target}}" />
 
-                {{!-- Bond qualities --}}
-                {{#each bond.qualities as | quality qualityKey | }}
-                {{!-- {{log "quality #" qualityKey quality}} --}}
-                <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal">{{quality.pos}}</label>
-                <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal"
-                  value="{{quality.posVal}}" {{checked quality.posVal}} data-dtype="Boolean" />
-
-                <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal">{{quality.neg}}</label>
-                <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal"
-                  value="{{quality.negVal}}" {{checked quality.negVal}} data-dtype="Boolean" />
-                {{/each}}
+              {{#each system.bonds as | bond bondKey |}}
+              <div class="bond-row">
+                <div class="bond-target">
+                  <input type="text" name="system.bonds.{{bondKey}}.target" value="{{bond.target}}" />
+                </div>
+                <div class="bond-qualities">
+                  {{#each bond.qualities as | quality qualityKey |}}
+                  <div class="bond-type">
+                    <div class="bond-attr">
+                      <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal">{{quality.pos}}</label>
+                      <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal"
+                        value="{{quality.posVal}}" {{checked quality.posVal}} data-dtype="Boolean" />
+                    </div>
+                    <div class="bond-attr">
+                      <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal">{{quality.neg}}</label>
+                      <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal"
+                        value="{{quality.negVal}}" {{checked quality.negVal}} data-dtype="Boolean" />
+                    </div>
+                  </div>
+                  {{/each}}
+                </div>
               </div>
               {{/each}}
+
+              {{!-- <span class="text-vertical-pill">Bonds</span> --}}
+              {{!-- {{#each system.bonds as | bond bondKey | }}
+              <div class="resource flex-group-center">
+                <label for="system.bonds.{{bondKey}}.target">{{bond.target}}</label>
+                <input type="text" name="system.bonds.{{bondKey}}.target" value="{{bond.target}}" />
+            
+                {{#each bond.qualities as | quality qualityKey | }}
+                <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal">{{quality.pos}}</label>
+                <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal" value="{{quality.posVal}}"
+                  {{checked quality.posVal}} data-dtype="Boolean" />
+            
+                <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal">{{quality.neg}}</label>
+                <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal" value="{{quality.negVal}}"
+                  {{checked quality.negVal}} data-dtype="Boolean" />
+                {{/each}}
+              </div>
+              {{/each}} --}}
             </div>
+        </div>
+        <div class="tab" data-group="primary" data-tab="bio">
+          <div class="card card-shadow bio">
+            {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
+            {{editor system.biography target="system.biography" button=true owner=owner editable=editable engine="prosemirror"}}
           </div>
         </div>
       </section>
