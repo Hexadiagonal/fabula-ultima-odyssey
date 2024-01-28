@@ -8,7 +8,7 @@
       "discord": "Hexadiagonal"
     }
   ],
-  "url": "Replace this with a link to your public repository",
+  "url": "https://github.com/Hexadiagonal/fabulaUltimaOdyssey",
   "license": "LICENSE.txt",
   "readme": "README.md",
   "bugs": "Replace this with a link to file issues or tickets",
@@ -20,7 +20,7 @@
       "thumbnail": "systems/fabulaUltimaOdyssey/assets/anvil-impact.png"
     }
   ],
-  "version": "0.1.0",
+  "version": "0.2.0",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
@@ -37,8 +37,8 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
-  "download": "This must link to a .zip file of the current version",
+  "manifest": "https://raw.githubusercontent.com/hexadiagonal/fabulaUltimaOdyssey/master/tsproject/fabulaUltimaOdyssey/system.json",
+  "download": "https://github.com/Hexadiagonal/fabulaUltimaOdyssey/releases/tag/v0.2.0-alpha.zip",
   "background": "systems/fabulaUltimaOdyssey/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
