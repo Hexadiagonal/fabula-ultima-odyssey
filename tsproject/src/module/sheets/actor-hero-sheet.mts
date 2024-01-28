@@ -3,7 +3,6 @@ import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/ef
 //import {ActorSheet} from "./ref/foundry.js";
 
 
-
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -214,22 +213,65 @@ export class fabulaUltimaOdysseyHeroSheet extends ActorSheet {
 
     if(dataset.rolltype == "attribute"){
 
-      const attrRollContent = await renderTemplate("systems/fabulaUltimaOdyssey/templates/partials/attribute-roll-modal.hbs", this);
+      const templatePayload = {
+        system: this.actor.system,
+        primaryAttribute: dataset.selectedAttribute
+      }
+
+      const attrRollContent = await renderTemplate("systems/fabulaUltimaOdyssey/templates/partials/attribute-roll-modal.hbs", templatePayload);
+
 
       let d = new Dialog({
         title: "Attribute Roll",
         content: attrRollContent,
         buttons: {
-         one: {
-          icon: '<i class="fas fa-check"></i>',
-          label: "Option One",
-          callback: () => console.log("Chose One")
-         },
-         two: {
-          icon: '<i class="fas fa-times"></i>',
-          label: "Option Two",
-          callback: () => console.log("Chose Two")
-         }
+          roll: {
+            icon: '<i class="fas fa-check"></i>',
+            label: "Roll!",
+            callback: async (html, event) => {
+              const primarySize:string = dataset.selectedAttributeSize as string;
+              const secondarySize:string = $('#secondary-attribute-selector').find(":selected").val() as string;
+              let modifier: number = parseInt($('#modifier').val() as string);
+
+              if(null == modifier || undefined == modifier){
+                modifier = 0;
+              }
+              
+              let roll = new Roll(primarySize + "+" + secondarySize + "+ @mod", {mod: modifier});
+              let label = dataset.label ? `Rolling ${dataset.label}` : '';
+              
+              let speaker = ChatMessage.getSpeaker({actor: this.actor});
+
+              let rollOutcome = await roll.roll();
+
+              rollOutcome.toMessage({
+                speaker,
+                flavor: label
+              });
+
+              // let roll = new Roll(dataset.roll, this.actor.data.data);
+              // let label = dataset.label ? `Rolling ${dataset.label}` : '';
+              // roll.roll().toMessage({
+              //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+              //   flavor: label
+              // });
+
+              // ChatMessage.create("Test!");
+              // let actor = html.find('[name="actor"]')[0].value
+              // let message = html.find('[name="message"]')[0].value
+              // ChatMessage.create({content: message, speaker: {actor:actor}})
+            }
+          }
+        //  one: {
+        //   icon: '<i class="fas fa-check"></i>',
+        //   label: "Option One",
+        //   callback: () => console.log("Chose One")
+        //  },
+        //  two: {
+        //   icon: '<i class="fas fa-times"></i>',
+        //   label: "Option Two",
+        //   callback: () => console.log("Chose Two")
+        //  }
         },
         default: "two",
         render: html => console.log("Register interactivity in the rendered dialog"),

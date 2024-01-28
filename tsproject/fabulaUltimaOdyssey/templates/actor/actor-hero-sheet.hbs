@@ -3,159 +3,158 @@
   {{!-- <header class="sheet-header"> --}}
     <div class="page-container">
       <header>
-      <div class="header-grid">
-        <span>
-          <img class="char-image-long" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
-            width="100" />
-        </span>
+        <div class="header-grid">
+          <span>
+            <img class="char-image-long" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
+              width="100" />
+          </span>
 
-        <div class="header-data-grid">
-          <span class="name-gridspan">
-            <label class="resource-label" for="name">Name</label>
-            <input class="name-input" name="name" type="text" value="{{actor.name}}" />
-          </span>
-          <span class="pronouns-gridspan">
-            <label class="resource-label" for="system.pronouns">Pronouns</label>
-            <input class="pronoun-input" name="system.pronouns" type="text" value="{{system.pronouns}}" />
-          </span>
-          <span class="identity-gridspan">
-            <label class="resource-label" for="system.traits.identity">Identity</label>
-            <input type="text" name="system.traits.identity" value="{{system.traits.identity}}"/>
-          </span>
-          <span class="theme-gridspan">
-            <label class="resource-label" for="system.traits.theme">Theme</label>
-            <input type="text" name="system.traits.theme" value="{{system.traits.theme}}" />
-          </span>
-          <span class="origin-gridspan">
-            <label class="resource-label" for="system.traits.origin">Origin</label>
-            <input type="text" name="system.traits.origin" value="{{system.traits.origin}}" placeholder="Origin" />
-          </span>
-          
-          <span class="fabula-gridspan resource-content">
-            <span class="flex-grid-content">
-              <label class="resource-label" for="system.fabula">Fabula</label>
-              <input class="numeric-input" type="number" name="system.fabula" value="{{system.mp.value}}" data-dtype="Number" />
+          <div class="header-data-grid">
+            <span class="name-gridspan">
+              <label class="resource-label" for="name">Name</label>
+              <input class="name-input" name="name" type="text" value="{{actor.name}}" />
             </span>
-            <span class="flex-grid-content">
-              <label class="resource-label" for="system.exp">Exp</label>
-              <input class="numeric-input" type="number" name="system.exp" value="{{system.mp.value}}" data-dtype="Number" />
+            <span class="pronouns-gridspan">
+              <label class="resource-label" for="system.pronouns">Pronouns</label>
+              <input class="pronoun-input" name="system.pronouns" type="text" value="{{system.pronouns}}" />
             </span>
-            <span class="flex-grid-content">
-              <label class="resource-label" for="system.level">Level</label>
-              <input class="numeric-input" type="number" name="system.level" value="{{system.mp.value}}" data-dtype="Number" />
+            <span class="identity-gridspan">
+              <label class="resource-label" for="system.traits.identity">Identity</label>
+              <input type="text" name="system.traits.identity" value="{{system.traits.identity}}" />
             </span>
-          </span>
-          {{!-- <span class="exp-gridspan resource-content">
-            
-          </span>
-          <span class="level-gridspan resource-content">
-            
-          </span> --}}
-          <span class="health-gridspan">
-            <div class="resource flex-group-center">
-              <label for="system.hp.value" class="resource-label">HP</label>
-              <div class="resource-content flexrow flex-center flex-between">
-                <input type=number name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" />
-                <span> / </span>
-                <input type=number name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" />
-              </div>
-            </div>
-          
-            <div class="resource flex-group-center">
-              <label for="system.mp.value" class="resource-label">MP</label>
-              <div class="resource-content flexrow flex-center flex-between">
-                <input type=number name="system.mp.value" value="{{system.mp.value}}" data-dtype="Number" />
-                <span> / </span>
-                <input type=number name="system.mp.max" value="{{system.mp.max}}" data-dtype="Number" />
-              </div>
-            </div>
+            <span class="theme-gridspan">
+              <label class="resource-label" for="system.traits.theme">Theme</label>
+              <input type="text" name="system.traits.theme" value="{{system.traits.theme}}" />
+            </span>
+            <span class="origin-gridspan">
+              <label class="resource-label" for="system.traits.origin">Origin</label>
+              <input type="text" name="system.traits.origin" value="{{system.traits.origin}}" placeholder="Origin" />
+            </span>
 
-            <div class="resource flex-group-center">
-              <label for="system.ip.value" class="resource-label">IP</label>
-              <div class="resource-content flexrow flex-center flex-between">
-                <input type=number name="system.ip.value" value="{{system.ip.value}}" data-dtype="Number" />
-                <span> / </span>
-                <input type=number name="system.ip.max" value="{{system.ip.max}}" data-dtype="Number" />
+            <span class="fabula-gridspan resource-content">
+              <span class="flex-grid-content">
+                <label class="resource-label" for="system.mdefense">MDef</label>
+                <input class="numeric-input" type="number" name="system.mdefense.value"
+                  value="{{system.mdefense.value}}" data-dtype="Number" />
+              </span>
+              <span class="flex-grid-content">
+                <label class="resource-label" for="system.mdefense">Def</label>
+                <input class="numeric-input" type="number" name="system.defense" value="{{system.mdefense.value}}"
+                  data-dtype="Number" />
+              </span>
+              <span class="flex-grid-content">
+                <label class="resource-label" for="system.fabula">Fabula</label>
+                <input class="numeric-input" type="number" name="system.fabula" value="{{system.mp.value}}"
+                  data-dtype="Number" />
+              </span>
+              <span class="flex-grid-content">
+                <label class="resource-label" for="system.exp">Exp</label>
+                <input class="numeric-input" type="number" name="system.exp" value="{{system.mp.value}}"
+                  data-dtype="Number" />
+              </span>
+              <span class="flex-grid-content">
+                <label class="resource-label" for="system.level">Level</label>
+                <input class="numeric-input" type="number" name="system.level" value="{{system.mp.value}}"
+                  data-dtype="Number" />
+              </span>
+            </span>
+            <span class="health-gridspan">
+
+              <div class="tracker-box">
+                <label for="system.hp.value" class="tracker-label">HP</label>
+                <div class="tracker-span">
+                  <input class="" type="number" name="system.hp.value" value="{{system.hp.value}}"
+                    data-dtype="Number" />
+                  <span class="separator"> / </span>
+                  <input class="" type="number" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" />
+                </div>
               </div>
-            </div>
-          </span>
+
+              <div class="tracker-box">
+                <label for="system.mp.value" class="tracker-label">MP</label>
+                <div class="tracker-span">
+                  <input type="number" name="system.mp.value" value="{{system.mp.value}}" data-dtype="Number" />
+                  <span class="separator"> / </span>
+                  <input type="number" name="system.mp.max" value="{{system.mp.max}}" data-dtype="Number" />
+                </div>
+              </div>
+
+              <div class="tracker-box">
+                <label for="system.ip.value" class="tracker-label">IP</label>
+                <div class="tracker-span">
+                  <input type="number" name="system.ip.value" value="{{system.ip.value}}" data-dtype="Number" />
+                  <span class="separator"> / </span>
+                  <input type="number" name="system.ip.max" value="{{system.ip.max}}" data-dtype="Number" />
+                </div>
+              </div>
+            </span>
+          </div>
         </div>
-      </div>
 
-      <div class="header-fields">
+        <div class="header-fields">
 
-        {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-        use both the "grid" and "grid-Ncol" class where "N" can be any number
-        from 1 to 12 and will create that number of columns. --}}
-        <div class="resources grid grid-3col">
-          {{!-- "flex-group-center" is also defined in the _grid.scss file
-          and it will add a small amount of padding, a border, and will
-          center all of its child elements content and text. --}}
-          
-          {{#each system.attributes as | attribute key | }}
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns. --}}
+          <div class="resources grid grid-4col">
+            {{!-- "flex-group-center" is also defined in the _grid.scss file
+            and it will add a small amount of padding, a border, and will
+            center all of its child elements content and text. --}}
+
+            {{#each system.attributes as | attribute key | }}
             <div class="resource flex-group-center">
-              {{!-- <label for="system.attributes.{{key}}.value" class="resource-label">{{attribute.label}}</label> --}}
               <h4 class="rollable box-title" data-rolltype="attribute" data-selected-attribute="{{key}}"
                 data-selected-attribute-size="{{attribute.value}}">{{attribute.label}}</h4>
-              <div class="resource-content flexrow flex-center flex-between">
+              <div>
                 <select name="system.attributes.{{key}}.value" selected="{{attribute.value}}">
                   {{#each attribute.range as | range index | }}
-                    {{!-- <option {{#if range.value == attribute.value}} selected="selected" {{/if}}value="{{range.value}}">{{range.label}}</option> --}}
+                  <option {{#if (isEqual attribute.value range.value)}} selected="selected"
+                    {{/if}}value="{{range.value}}">{{range.label}}</option>
                   {{/each}}
-                  {{!-- <option selected="selected" value="d6">d6</option>
-                  <option value="d8">d8</option>
-                  <option value="d10">d10</option>
-                  <option value="d12">d12</option> --}}
                 </select>
               </div>
-            </div>
-          {{/each}}
-          
-          
-          {{!-- <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}"
-            data-dtype="Number" /> --}}
-        </div>
-      </div>
-    </header>
-
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-      {{!-- Default tab is specified in actor-sheet.mjs --}}
-      <a class="item" data-tab="bonds">Bonds</a>
-    </nav>
-
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-      {{!-- Bonds Tab block --}}
-      <div class="tab bonds" data-group="primary" data-tab="bonds">
-        {{!-- Bonds container --}}
-        <div>
-          <div class="group-border">
-            <span class="text-vertical-pill">Bonds</span>
-            {{#each system.bonds as | bond bondKey | }}
-            {{!-- {{log "bond #" bondKey bond}} --}}
-            <div class="resource flex-group-center">
-              {{!-- The bond recipient / target --}}
-              <label for="system.bonds.{{bondKey}}.target">{{bond.target}}</label>
-              <input type="text" name="system.bonds.{{bondKey}}.target" value="{{bond.target}}" />
-
-              {{!-- Bond qualities --}}
-              {{#each bond.qualities as | quality qualityKey | }}
-              {{!-- {{log "quality #" qualityKey quality}} --}}
-              <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal">{{quality.pos}}</label>
-              <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal"
-                value="{{quality.posVal}}" {{checked quality.posVal}} data-dtype="Boolean" />
-
-              <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal">{{quality.neg}}</label>
-              <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal"
-                value="{{quality.negVal}}" {{checked quality.negVal}} data-dtype="Boolean" />
-              {{/each}}
             </div>
             {{/each}}
           </div>
         </div>
-      </div>
-    </section>
+      </header>
+
+      {{!-- Sheet Tab Navigation --}}
+      <nav class="sheet-tabs tabs" data-group="primary">
+        {{!-- Default tab is specified in actor-sheet.mjs --}}
+        <a class="item" data-tab="bonds">Bonds</a>
+      </nav>
+
+      {{!-- Sheet Body --}}
+      <section class="sheet-body">
+        {{!-- Bonds Tab block --}}
+        <div class="tab bonds" data-group="primary" data-tab="bonds">
+          {{!-- Bonds container --}}
+          <div>
+            <div class="group-border">
+              <span class="text-vertical-pill">Bonds</span>
+              {{#each system.bonds as | bond bondKey | }}
+              <div class="resource flex-group-center">
+                {{!-- The bond recipient / target --}}
+                <label for="system.bonds.{{bondKey}}.target">{{bond.target}}</label>
+                <input type="text" name="system.bonds.{{bondKey}}.target" value="{{bond.target}}" />
+
+                {{!-- Bond qualities --}}
+                {{#each bond.qualities as | quality qualityKey | }}
+                {{!-- {{log "quality #" qualityKey quality}} --}}
+                <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal">{{quality.pos}}</label>
+                <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.posVal"
+                  value="{{quality.posVal}}" {{checked quality.posVal}} data-dtype="Boolean" />
+
+                <label for="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal">{{quality.neg}}</label>
+                <input type="checkbox" name="system.bonds.{{bondKey}}.qualities.{{qualityKey}}.negVal"
+                  value="{{quality.negVal}}" {{checked quality.negVal}} data-dtype="Boolean" />
+                {{/each}}
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    
 </form>

@@ -46,9 +46,9 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyActorSheet, { types:["character"], makeDefault: true });
+  // Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyActorSheet, { types:["character"], makeDefault: true });
 
-  Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyHeroSheet, { types:["hero"], makeDefault: true });
+  Actors.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyHeroSheet, { types:["hero", "npc", "villain", "bestiary"], makeDefault: true });
 
   // Items.unregisterSheet("core", ItemSheet);
   // Items.registerSheet("fabulaUltimaOdyssey", fabulaUltimaOdysseyItemSheet, { makeDefault: true });
@@ -87,6 +87,14 @@ Handlebars.registerHelper('concat', function() {
 
 Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
+});
+
+Handlebars.registerHelper('isEqual', function(a, b) {
+  return a == b;
+});
+
+Handlebars.registerHelper('notEqual', function(a, b) {
+  return a != b;
 });
 
 /* -------------------------------------------- */

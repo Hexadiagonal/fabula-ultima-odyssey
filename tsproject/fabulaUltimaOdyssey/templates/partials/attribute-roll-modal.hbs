@@ -1,3 +1,69 @@
-<div>
-    Attribute Roll Time!
+<div style="padding:10px;">
+    {{!-- <div>
+        <label>Primary Attribute: {{primaryAttribute}}</label>
+        {{#with (lookup system.attributes primaryAttribute)}}
+        <div>
+            RollValue: {{value}}
+        </div>
+        {{/with}}
+    </div> --}}
+
+<div id="input-container" class="flex-span">
+    <span>
+        <label>Primary</label>
+        <select id="primary-attribute-selector">
+            {{#each system.attributes as | attribute key | }}
+            <option{{#if (isEqual key ../primaryAttribute)}} selected="selected" {{/if}} value="{{attribute.value}}">
+                {{attribute.label}}
+                </option>
+                {{/each}}
+        </select>
+    </span>
+
+    <span>
+        <label>Secondary</label>
+        <select id="secondary-attribute-selector">
+            {{#each system.attributes as | attribute key | }}
+            <option value="{{attribute.value}}">
+                {{attribute.label}}
+            </option>
+            {{/each}}
+        </select>
+    </span>
+
+    <span>
+        <label>Modifier</label>
+        <input class="numeric-input" id="modifier" type="number" placeholder="0" value="0" />
+    </span>
+</div>
+
+    
+
+
+    {{!-- <select id="secondary-attribute-selector">
+        {{#each system.attributes as | attribute key | }}
+            <option value="{{attribute.value}}">
+                {{attribute.label}}
+            </option>
+        {{/each}}
+    </select> --}}
+
+    
+    
+
+
+    {{!-- {{#each system.attributes as | attribute key | }}
+    <div class="resource flex-group-center">
+        <h4 class="box-title" data-rolltype="attribute" data-selected-attribute="{{key}}"
+            data-selected-attribute-size="{{attribute.value}}">{{attribute.label}}</h4>
+        <div class="resource-content flexrow flex-center flex-between">
+            <select name="system.attributes.{{key}}.value" selected="{{attribute.value}}">
+                {{#each attribute.range as | range index | }}
+                <option {{#if (isEqual attribute.value range.value)}} selected="selected"
+                    {{/if}}value="{{range.value}}">{{range.label}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    {{/each}} --}}
 </div>
